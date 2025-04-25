@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/citas"
+           xmlns="http://example.com/citas"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://example.com/paciente" schemaLocation="paciente.xsd"/>    
+    <xs:complexType name="CargoType">
+        <xs:sequence>
+            <xs:choice>
+                <xs:element name="importe" type="xs:decimal"/>
+                <xs:element name="poliza" type="xs:string"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DetallesType">
+        <xs:sequence>
+            <xs:element name="fechaCita" type="xs:date"/>
+            <xs:element name="horario">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="mañana"/>
+                        <xs:enumeration value="tarde"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="especialidad">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Oftalmología"/>
+                        <xs:enumeration value="Fisioterapia y rehabilitación"/>
+                        <xs:enumeration value="Cardiología"/>
+                        <xs:enumeration value="Ginecología y obstetricia"/>
+                        <xs:enumeration value="Salud mental"/>
+                        <xs:enumeration value="ORL (otorrinolaringología y cirugía de cabeza y cuello)"/>
+                        <xs:enumeration value="Dental"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="medico" type="xs:string" minOccurs="0"/>
+            <xs:element name="duracion" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CitaType">
+        <xs:sequence>
+            <xs:element name="cargo" type="CargoType"/>
+            <xs:element name="detalles" type="DetallesType"/>
+        </xs:sequence>
+        <xs:attribute name="urgente" type="xs:boolean"/>
+        <xs:attribute name="tipo">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="seguro"/>
+                    <xs:enumeration value="libre"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="citas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cita" type="CitaType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

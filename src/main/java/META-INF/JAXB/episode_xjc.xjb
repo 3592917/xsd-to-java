@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2025.04.25 a las 09:06:21 PM CEST 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://example.com/citas">
+    <schemaBindings map="false">
+      <package name="org.example"/>
+    </schemaBindings>
+    <bindings scd="tns:citas">
+      <class ref="org.example.Citas"/>
+    </bindings>
+    <bindings scd="~tns:CitaType">
+      <class ref="org.example.CitaType"/>
+    </bindings>
+    <bindings scd="~tns:CargoType">
+      <class ref="org.example.CargoType"/>
+    </bindings>
+    <bindings scd="~tns:DetallesType">
+      <class ref="org.example.DetallesType"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="http://example.com/paciente">
+    <schemaBindings map="false">
+      <package name="org.example"/>
+    </schemaBindings>
+    <bindings scd="~tns:PacienteType">
+      <class ref="org.example.PacienteType"/>
+    </bindings>
+  </bindings>
+</bindings>
+
